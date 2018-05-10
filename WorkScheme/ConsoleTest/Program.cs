@@ -11,38 +11,31 @@ namespace ConsoleTest
 {
     class Program
     {
+ 
         static void Main(string[] args)
         {
 
-            string connectionString="";
-            connectionString = 
-                "SERVER=" + "localhost" + ";"
-                +"PORT=" +"3309"+";"
-                + "DATABASE=" +"test" + ";"
-                + "UID=" + "root" + ";"
-                + "PASSWORD=" + "19047321k" + ";" +
-                "SslMode=none;";
-
-
-
-
-
             MySqlConnector m = new MySqlConnector();
-            m.ConnectionString = connectionString;
+            m.ConnectionString =m.getCnString();
+            //llamada al procedimiento 
             m.AddProcedure("new_procedure");
-              m.
-                  AddParameter("", "").
-                  AddParameter("", "").
-                  AddParameter("", "").
-                  AddParameter("", "");
-            DataTable dt = new DataTable();
-            /*resultado a datatable*/
-            dt = m.ExecQuery().toDataTable();
-            /*XDocument xdoc = new XDocument();
-            xdoc = m.ExecQuery().toXml();*/
+            //asignaion de los parametros del procedimiento 
+            m.
+                AddParameter("CON", "0").
+                AddParameter("CON1", "1");
 
-
+            //resultado....
+            //datatable 
+            DataTable dt = new DataTable();      
+            dt = m.ExecQuery().ToDataTable();
+            // o xml 
+            XDocument x = new XDocument();
+            x = m.ExecQuery().ToXml();
+            // o json 
+            string s = string.Empty;
+            s= m.ExecQuery().ToJson();
             Console.ReadKey();
         }
+
     }
 }

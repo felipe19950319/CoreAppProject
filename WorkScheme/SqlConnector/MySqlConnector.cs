@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using System.Xml.Linq;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace SqlConnector
 {
@@ -15,8 +16,6 @@ namespace SqlConnector
         //private Common c = new Common();
         private MySqlConnection cn = new MySqlConnection();
         private MySqlCommand cmd = new MySqlCommand();
-        public string ConnectionString = string.Empty;
-        public  DataSet ds = new DataSet();
         // public string StoredProcedure = string.Empty;
 
         public void OpenConnection()
@@ -47,6 +46,8 @@ namespace SqlConnector
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             //retornaremos finalmente 
             //DataSet ds = new DataSet();
+            ds.Dispose();
+            ds.Clear();
             adapter.Fill(ds);
 
             CloseConnection();
@@ -54,27 +55,5 @@ namespace SqlConnector
         }
 
     }
-    public static class ConnectorOverload
-    {
-        public static DataTable toDataTable(this MySqlConnector ms)
-        {
-          return  ms.ds.Tables[0];
-        }
-
-        public static XDocument toXml(this MySqlConnector ms)
-        {
-            string result=string.Empty;
-            using (MemoryStream ms_ = new MemoryStream())
-            {
-                ms.ds.Tables[0].WriteXml(ms_, System.Data.XmlWriteMode.IgnoreSchema);
-                result = System.Text.Encoding.Default.GetString(ms_.ToArray());
-            }
-
-            XDocument xdoc = XDocument.Parse(result);
-            return xdoc;
-        }
-
-    }
-
 
 }
