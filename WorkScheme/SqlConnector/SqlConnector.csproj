@@ -49,6 +49,7 @@
     <Compile Include="Extends.cs" />
     <Compile Include="MySqlConnector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerConnector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

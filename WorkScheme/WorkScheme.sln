@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlConnector", "SqlConnecto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{ECF6D97E-FB33-422E-849C-E71B551AE641}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "WebApplication\WebApplication.csproj", "{1378932B-2167-45B9-BDD9-3938BC064195}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF_Transacciones", "WCF_Transacciones\WCF_Transacciones.csproj", "{25E806C4-9457-4429-83BE-34432B663089}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{ECF6D97E-FB33-422E-849C-E71B551AE641}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECF6D97E-FB33-422E-849C-E71B551AE641}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECF6D97E-FB33-422E-849C-E71B551AE641}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1378932B-2167-45B9-BDD9-3938BC064195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1378932B-2167-45B9-BDD9-3938BC064195}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1378932B-2167-45B9-BDD9-3938BC064195}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1378932B-2167-45B9-BDD9-3938BC064195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25E806C4-9457-4429-83BE-34432B663089}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25E806C4-9457-4429-83BE-34432B663089}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25E806C4-9457-4429-83BE-34432B663089}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25E806C4-9457-4429-83BE-34432B663089}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

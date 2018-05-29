@@ -1,31 +1,28 @@
-﻿using MySql.Data.MySqlClient;
-
+﻿using System.Data.SqlClient;
 
 namespace SqlConnector
 {
-    public class MySqlConnector : Common
+    public class SqlServerConnector:Common
     {
-        //private Common c = new Common();
-        private MySqlConnection cn = new MySqlConnection();
-        private MySqlCommand cmd = new MySqlCommand();
-        // public string StoredProcedure = string.Empty;
-
+        private SqlConnection cn = new SqlConnection();
+        private SqlCommand cmd = new SqlCommand();
         public void OpenConnection()
         {
             cn.ConnectionString = this.ConnectionString;
             cn.Open();
         }
 
-        public void CloseConnection() {
+        public void CloseConnection()
+        {
             cn.Dispose();
             cn.Close();
         }
 
-        public MySqlConnector ExecQuery()
+        public SqlServerConnector ExecQuery()
         {
             OpenConnection();
 
-            cmd = new MySqlCommand(Procedure, cn);
+            cmd = new SqlCommand(Procedure, cn);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
             foreach (var Item in Parameters)
@@ -35,7 +32,7 @@ namespace SqlConnector
 
             cmd.ExecuteNonQuery();
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             //retornaremos finalmente 
             //DataSet ds = new DataSet();
             ds.Dispose();
@@ -47,5 +44,4 @@ namespace SqlConnector
         }
 
     }
-
 }
